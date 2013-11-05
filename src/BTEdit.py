@@ -209,7 +209,8 @@ class BTEditWindow(wx.Panel):
         for r in self.nodes:
           if r.Contains(pos.x,pos.y):
             self.popupmenu.Enable(ID_NEW_CHILD, True )
-            self.popupmenu.Enable(ID_DELETE_NODE, True )
+            if self.GetIndexOf(r) != 0:
+              self.popupmenu.Enable(ID_DELETE_NODE, True )
             if self.focusNode != 0:
               if r != self.focusNode and r != self.focusNode.getParent():
                 self.popupmenu.Enable(ID_SET_PARENT, True )        
